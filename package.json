@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "npm test --prefix notification_app_be && npm test --prefix vehicle_maintenance_scheduler"
+  },
   "dependencies": {
     "axios": "^1.16.1"
   }
