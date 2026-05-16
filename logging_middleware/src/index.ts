@@ -41,7 +41,7 @@ export async function Log(
       }
     );
   } catch (error: any) {
-    console.error('LoggingMiddleware: Failed to send log to evaluation service', error?.message);
+    console.error('LoggingMiddleware: Failed to send log to evaluation service', error?.response?.data || error?.message);
     // Fallback to console logging
     console.log(`[${level.toUpperCase()}] ${packageName}: ${message}`);
   }
