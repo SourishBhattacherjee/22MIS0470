@@ -24,3 +24,6 @@ To ensure high availability and scalability, notifications will be delivered asy
 2. **Message Queue**: Buffers the incoming notifications, decoupling the creation process from delivery.
 3. **Workers**: Independent background worker processes consume messages from the queue and interface with external providers (Email, SMS, Push) to deliver them.
 4. **Retries & Failure Handling**: If a delivery fails, workers can utilize a dead-letter queue (DLQ) or exponential backoff to requeue the message for retry without blocking the main flow.
+
+LLD:
+![alt text](image.png)
