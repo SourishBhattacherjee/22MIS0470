@@ -6,12 +6,14 @@ export const fetchDepots = async (token: string) => {
   const response = await axios.get(`${BASE_URL}/depots`, {
     headers: { Authorization: `Bearer ${token}` }
   });
-  return response.data.depots || [];
+  const data = response.data;
+  return Array.isArray(data) ? data : (data?.depots || data?.data || []);
 };
 
 export const fetchVehicles = async (token: string) => {
   const response = await axios.get(`${BASE_URL}/vehicles`, {
     headers: { Authorization: `Bearer ${token}` }
   });
-  return response.data || [];
+  const data = response.data;
+  return Array.isArray(data) ? data : (data?.vehicles || data?.data || []);
 };

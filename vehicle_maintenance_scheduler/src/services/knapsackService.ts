@@ -5,6 +5,9 @@ export interface VehicleTask {
 }
 
 export function solveKnapsack(tasks: VehicleTask[], maxHours: number) {
+  if (!Array.isArray(tasks) || tasks.length === 0 || typeof maxHours !== 'number' || isNaN(maxHours) || maxHours <= 0) {
+    return { selectedTasks: [], totalDuration: 0, totalImpact: 0 };
+  }
   const n = tasks.length;
   // dp[i][w] will be the max impact for first i tasks and w capacity
   const dp: number[][] = Array.from({ length: n + 1 }, () => Array(maxHours + 1).fill(0));

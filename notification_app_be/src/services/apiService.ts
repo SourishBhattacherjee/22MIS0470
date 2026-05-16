@@ -6,5 +6,6 @@ export const fetchNotifications = async (token: string) => {
   const response = await axios.get(`${BASE_URL}/notifications`, {
     headers: { Authorization: `Bearer ${token}` }
   });
-  return response.data || [];
+  const data = response.data;
+  return Array.isArray(data) ? data : (data?.notifications || data?.data || []);
 };
