@@ -19,8 +19,10 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/notificati
 
 mongoose.connect(MONGO_URI)
   .then(() => {
+    console.log('Connected to MongoDB Atlas successfully (Notifications)!');
     Log('backend', 'info', 'db', 'Connected to MongoDB (Notifications)');
     app.listen(PORT, () => {
+      console.log(`Notification Service running on port ${PORT}`);
       Log('backend', 'info', 'service', `Notification service running on port ${PORT}`);
     });
   })

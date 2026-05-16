@@ -22,8 +22,10 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/vehicle_ma
 
 mongoose.connect(MONGO_URI)
   .then(() => {
+    console.log('Connected to MongoDB Atlas successfully!');
     Log('backend', 'info', 'db', 'Connected to MongoDB');
     app.listen(PORT, () => {
+      console.log(`Vehicle Maintenance Scheduler running on port ${PORT}`);
       Log('backend', 'info', 'service', `Server is running on port ${PORT}`);
     });
   })
